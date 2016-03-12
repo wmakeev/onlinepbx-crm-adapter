@@ -1,4 +1,15 @@
 {
-    "name": "onlinepbx-crm-adapter",
-    "version": "0.0.1"
+  "name": "onlinepbx-crm-adapter",
+  "version": "0.0.2",
+  "dependencies": {
+    "onlinepbx-moysklad": "0.0.2",
+    "restify": "^2.8.2"
+  },
+  "subdomain": "vensi-onlinepbx",
+  "scripts": {
+    "start": "src/server.js"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
 }
