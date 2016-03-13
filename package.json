@@ -1,16 +1,29 @@
 {
   "name": "onlinepbx-crm-adapter",
-  "version": "0.0.2",
+  "description": "Сервис интеграции Google Chrome плагина от онлайн АТС OnlinePBX с сервисовм МойСклад",
+  "version": "0.0.3",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [
+    "node",
+    "onlinepbx",
+    "moysklad",
+    "google chrome",
+    "extension"
+  ],
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "onlinepbx-moysklad": "0.0.2"
   },
-  "subdomain": "vensi-onlinepbx",
-  "scripts": {
-    "start": "src/server.js"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmakeev/onlinepbx-crm-adapter"
   },
   "engines": {
     "node": "0.10.x"
-  }
+  },
+  "license": "MIT"
 }
