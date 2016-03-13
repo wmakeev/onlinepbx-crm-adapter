@@ -6,10 +6,12 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var favicon = require('serve-favicon');
 var handler = require('./request-handler');
 
 var server = express();
 
+server.use(favicon(__dirname + '/public/favicon.ico'));
 server.use(bodyParser.json());
 
 server.post('/onlinepbx', handler);
