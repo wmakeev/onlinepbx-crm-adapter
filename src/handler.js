@@ -4,9 +4,11 @@ if (!process.env.CRM_ADAPTER) {
 var crmAdapter = require(process.env.CRM_ADAPTER);
 
 module.exports = function handler (req, res, next) {
-  // console.log(req);
-  
   var body = req.body;
+  
+  console.log('\n==ПОСТУПИЛА КОМАНДА==');
+  console.log(body);
+  
   var action = crmAdapter[body.action];
   
   if (!action) { 

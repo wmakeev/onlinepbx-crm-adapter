@@ -9,15 +9,16 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var serveStatic = require('serve-static');
-var handler = require('./request-handler');
+var handler = require('./handler');
 
 var server = express();
 
 server.use(serveStatic(path.resolve(__dirname, '../public')));
 server.use(favicon(path.resolve(__dirname, '../public/favicon.ico')));
-server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
+// server.use(bodyParser.json());
 
-server.post('/onlinepbx', handler);
+server.post('/addon', handler);
 
 server.use(function (err, req, res, next) {
   console.error(err.message);

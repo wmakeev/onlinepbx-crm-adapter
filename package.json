@@ -16,7 +16,7 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
-    "onlinepbx-moysklad": "0.0.2",
+    "onlinepbx-moysklad": "0.0.3",
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.2"
   },
