@@ -4,14 +4,17 @@
  * Vitaliy V. Makeev (w.makeev@gmail.com)
  */
 
+var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
+var serveStatic = require('serve-static');
 var handler = require('./request-handler');
 
 var server = express();
 
-server.use(favicon(__dirname + '/public/favicon.ico'));
+server.use(serveStatic(path.resolve(__dirname, '../public')));
+server.use(favicon(path.resolve(__dirname, '../public/favicon.ico')));
 server.use(bodyParser.json());
 
 server.post('/onlinepbx', handler);
@@ -24,4 +27,4 @@ server.use(function (err, req, res, next) {
   });
 });
 
-server.listen(8080);
+server.listen(process.env.PORT || 5000);
