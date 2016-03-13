@@ -28,5 +28,5 @@ MOYSKLAD_PASSWORD={Пароль МойСклад}
 Локальный запуск сервиса
 
 ```bash
-node src/server.js
+node index.js
 ```
