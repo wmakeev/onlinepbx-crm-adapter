@@ -1,7 +1,7 @@
 onlinepbx-crm-adapter
 =====================
 
-Сервис позволяющий интегрировать Google Chrome [плагин](https://chrome.google.com/webstore/detail/onlinepbx/dmkgnplakajhockogacednagkhjebdjn) онлайн АТС [OnlinePBX](http://www.onlinepbx.ru/) с сервисом [МойСклад](http://www.moysklad.ru/)
+Сервис позволяющий интегрировать [расширение](https://chrome.google.com/webstore/detail/onlinepbx/dmkgnplakajhockogacednagkhjebdjn) Google Chrome для онлайн АТС [OnlinePBX](http://www.onlinepbx.ru/) с сервисом [МойСклад](http://www.moysklad.ru/)
 
 ## Установка
 
