@@ -4,40 +4,22 @@
  * Vitaliy V. Makeev (w.makeev@gmail.com)
  */
 
-var restify    = require('restify'),
-    crmAdapter = require('onlinepbx-moysklad');
+var express = require('express');
+var bodyParser = require('body-parser');
+var handler = require('./request-handler');
 
-function handler (req, res, next) {
-  var body = req.body;
+var server = express();
 
-  crmAdapter[body.action](body.data, function (err, data) {
-    res.charSet('utf-8');
+server.use(bodyParser.json());
 
-    if (err) {
-      res.send({
-        status: "0",
-        comment: err.message
-      });
+server.post('/onlinepbx', handler);
 
-    } else {
-      res.send({
-        status: "1",
-        comment: 'Запрос успешно выполнен',
-        data: data
-      });
-    }
-
-    next();
+server.use(function (err, req, res, next) {
+  console.error(err.message);
+  res.status(200).send({
+    status: 0,
+    comment: err.message
   });
-}
-
-var server = restify.createServer();
-
-server.use(restify.bodyParser());
-server.use(restify.queryParser());
-
-server.post('/v1/onlinepbx', handler);
-
-server.listen(8080, function () {
-  console.log('%s listening at %s', server.name, server.url);
 });
+
+server.listen(8080);
