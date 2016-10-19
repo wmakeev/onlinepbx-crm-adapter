@@ -4,28 +4,30 @@
  * Vitaliy V. Makeev (w.makeev@gmail.com)
  */
 
-var path = require('path');
-var express = require('express');
-var bodyParser = require('body-parser');
-var favicon = require('serve-favicon');
-var serveStatic = require('serve-static');
-var handler = require('./handler');
+const path = require('path')
+const express = require('express')
+const bodyParser = require('body-parser')
+const favicon = require('serve-favicon')
+const serveStatic = require('serve-static')
+const createAdapter = require('./adapter')
 
-var server = express();
 
-server.use(serveStatic(path.resolve(__dirname, '../public')));
-server.use(favicon(path.resolve(__dirname, '../public/favicon.ico')));
-server.use(bodyParser.urlencoded({ extended: true }));
-// server.use(bodyParser.json());
+let server = express()
+let adapter = createAdapter()
 
-server.post('/addon', handler);
+server.use(serveStatic(path.resolve(__dirname, '../public')))
+server.use(favicon(path.resolve(__dirname, '../public/favicon.ico')))
+server.use(bodyParser.urlencoded({ extended: true }))
+
+server.post('/addon', adapter.addonMiddleware)
+server.post('/http', adapter.httpCommandMiddleware)
 
 server.use(function (err, req, res, next) {
-  console.error(err.message);
+  console.error(err.message)
   res.status(200).send({
     status: 0,
     comment: err.message
-  });
-});
+  })
+})
 
-server.listen(process.env.PORT || 5000);
+server.listen(process.env.PORT || 5000)

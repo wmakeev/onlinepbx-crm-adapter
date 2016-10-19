@@ -1,7 +1,7 @@
 {
   "name": "onlinepbx-crm-adapter",
   "description": "Сервис интеграции Google Chrome плагина от онлайн АТС OnlinePBX с сервисовм МойСклад",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js"
@@ -15,8 +15,10 @@
   ],
   "dependencies": {
     "body-parser": "^1.15.0",
+    "co": "^4.6.0",
     "express": "^4.13.4",
     "onlinepbx-moysklad": "0.0.3",
+    "scaleflow": "github:wmakeev/scaleflow#1233b5b1c339c2611cc47696ad53922f1a910ca1",
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.2"
   },
@@ -27,5 +29,8 @@
   "engines": {
     "node": "0.10.x"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "2.0.0-beta.30"
+  }
 }
