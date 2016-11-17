@@ -11,10 +11,10 @@ const test = require('blue-tape')
 let CrmAdapter = require('../')
 
 // Mock CRM
-const mockCrmMiddleware = require('./mocks/mockCrmMiddleware')
+const mockCrmExtension = require('./mocks/mockCrmExtension')
 
 // Mock adapter creator
-let MockCrmAdapter = CrmAdapter.middleware(mockCrmMiddleware)
+let MockCrmAdapter = CrmAdapter.compose(mockCrmExtension)
 
 // Test cases
 const addonApiCases = require('./cases/addonApiCases')

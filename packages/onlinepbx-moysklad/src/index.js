@@ -2,9 +2,11 @@
 
 const { Core } = require('scaleflow')
 
-const callerNameMiddleware = require('./middlewares/callerNameMiddleware')
+const actionsRouter = require('./middlewares/actionsRouter')
+const callerName = require('./middlewares/callerName')
 
 module.exports = {
-  callerNameMiddleware,
-  onlinepbxMoysklad: Core.middleware(callerNameMiddleware)
+  callerName,
+  actionsRouter,
+  onlinepbxMoysklad: Core.middleware(actionsRouter, callerName)
 }

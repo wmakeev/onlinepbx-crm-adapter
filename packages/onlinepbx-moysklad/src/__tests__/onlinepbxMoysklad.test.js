@@ -36,9 +36,9 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
     .replyWithFile(200, path.resolve(__dirname, 'res/counterparty.json'))
 
   result = yield core.dispatch({
-    type: actions.GET_CALLER_NAME,
+    type: actions.CONTACT_INFO,
     payload: {
-      callerNumber: '8922 609-07-05'
+      phone: '8922 609-07-05'
     }
   })
 
@@ -71,9 +71,9 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
     .replyWithFile(200, path.resolve(__dirname, 'res/counterparty.json'))
 
   result = yield core.dispatch({
-    type: actions.GET_CALLER_NAME,
+    type: actions.HTTP_ACTION,
     payload: {
-      callerNumber: '3521782'
+      caller_number: '3521782'
     }
   })
 
