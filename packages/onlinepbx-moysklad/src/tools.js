@@ -20,4 +20,10 @@ const normalizePhone = phone =>
 const isPhonesCompare = (phone1, phone2) =>
     normalizePhone(phone1) === normalizePhone(phone2)
 
-module.exports = { getMoyskladError, normalizePhone, isPhonesCompare }
+const getAuthHeader = () => {
+  const { MOYSKLAD_LOGIN, MOYSKLAD_PASSWORD } = process.env
+  return 'Basic ' + Buffer.from(`${MOYSKLAD_LOGIN}:${MOYSKLAD_PASSWORD}`, 'utf8')
+    .toString('base64')
+}
+
+module.exports = { getMoyskladError, normalizePhone, isPhonesCompare, getAuthHeader }

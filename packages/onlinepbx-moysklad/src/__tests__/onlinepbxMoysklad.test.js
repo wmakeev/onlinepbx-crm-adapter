@@ -8,14 +8,14 @@ const test = require('blue-tape')
 
 const { Core } = require('scaleflow')
 
-const { onlinepbxMoysklad } = require('..')
+const onlinepbxMoysklad = require('..')
 const actions = require('../actions')
 
 // Mock log
 const loggerInitializer = (_, { instance }) => Object.assign(instance, { log () {} })
 
-const getScope = () => nock('https://online.moysklad.ru')
-    .get('/api/remap/1.1/entity/counterparty')
+const getScope = (type) => nock('https://online.moysklad.ru')
+    .get(`/api/remap/1.1/entity/${type}`)
 
 nock.emitter.on('no match', req => {
   console.log('no match:', req)
@@ -24,11 +24,12 @@ nock.emitter.on('no match', req => {
 test('onlinepbx-moysklad', co.wrap(function * (t) {
   let scope
   let result
-  let core = (Core.compose(onlinepbxMoysklad).init(loggerInitializer))()
+  let TestCore = Core.compose(onlinepbxMoysklad).init(loggerInitializer)
+  let core = TestCore()
 
   t.comment('find company by phone')
 
-  scope = getScope()
+  scope = getScope('counterparty')
     .query({
       expand: 'contactpersons',
       search: '8922 609-07-05'
@@ -63,7 +64,7 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
 
   t.comment('find contact in company by phone')
 
-  scope = getScope()
+  scope = getScope('counterparty')
     .query({
       expand: 'contactpersons',
       search: '3521782'
@@ -100,6 +101,26 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
       }
     }
   })
+
+  scope.done()
+
+  t.comment('list users')
+
+  scope = getScope('employee')
+    .replyWithFile(200, path.resolve(__dirname, 'res/employee.json'))
+
+  result = yield core.dispatch({
+    type: actions.LIST_USERS
+  })
+
+  t.ok(result)
+  t.deepEqual(result, [
+    {
+      id: '005323cb-83ac-11e6-7a31-d0fd002ef703',
+      name: 'Игнатьева Т. М.',
+      phone: '100'
+    }
+  ])
 
   scope.done()
 }))

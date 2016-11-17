@@ -1,0 +1,166 @@
+{
+  "context": {
+    "employee": {
+      "meta": {
+        "href": "https://online.moysklad.ru/api/remap/1.1/context/employee",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      }
+    }
+  },
+  "meta": {
+    "href": "http://online.moysklad.ru/api/remap/1.1/entity/employee",
+    "metadataHref": "http://online.moysklad.ru/api/remap/1.1/entity/employee/metadata",
+    "type": "employee",
+    "mediaType": "application/json",
+    "size": 3,
+    "limit": 25,
+    "offset": 0
+  },
+  "rows": [
+    {
+      "meta": {
+        "href": "https://online.moysklad.ru/api/remap/1.1/entity/employee/0b943648-92d9-49dd-bb2d-d58958c23c05",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      },
+      "id": "0b943648-92d9-49dd-bb2d-d58958c23c05",
+      "accountId": "07896027-0e7b-11e2-c959-3c4a92f3a0a7",
+      "owner": {
+        "meta": {
+          "href": "https://online.moysklad.ru/api/remap/1.1/entity/employee/0b943648-92d9-49dd-bb2d-d58958c23c05",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json"
+        }
+      },
+      "shared": true,
+      "group": {
+        "meta": {
+          "href": "https://online.moysklad.ru/api/remap/1.1/entity/group/17a74747-d269-11e4-90a2-8ecb00041136",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "version": 20,
+      "updated": "2015-08-18 11:34:11",
+      "name": "Новикова Н. В.",
+      "externalCode": "KjRqz8neil2KiSVfDNiZx0",
+      "archived": false,
+      "uid": "fgh@vensi-shop",
+      "email": "vensi@vensi.me",
+      "phone": "+7 (922) 100-20-13",
+      "firstName": "Наталья",
+      "middleName": "Вячеславовна",
+      "lastName": "Новикова",
+      "fullName": "Наталья Вячеславовна Новикова",
+      "shortFio": "Новикова Н. В.",
+      "attributes": [
+        {
+          "meta": {
+            "href": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata/attributes/0aed2c79-aa1e-41d9-a90f-461711733ed7",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "id": "0aed2c79-aa1e-41d9-a90f-461711733ed7",
+          "name": "Внутренний номер",
+          "type": "string",
+          "value": "100"
+        }
+      ]
+    },
+    {
+      "meta": {
+        "href": "https://online.moysklad.ru/api/remap/1.1/entity/employee/0bf340db-b6b5-4bf1-9271-2d75300df8e4",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      },
+      "id": "0bf340db-b6b5-4bf1-9271-2d75300df8e4",
+      "accountId": "47896027-0e7b-11e2-c959-3c4a92f3a0a7",
+      "owner": {
+        "meta": {
+          "href": "https://online.moysklad.ru/api/remap/1.1/entity/employee/0bf340db-b6b5-4bf1-9271-2d75300df8e4",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json"
+        }
+      },
+      "shared": true,
+      "group": {
+        "meta": {
+          "href": "https://online.moysklad.ru/api/remap/1.1/entity/group/17a74747-d269-11e4-90a2-8ecb00041136",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "version": 4,
+      "updated": "2016-01-26 17:11:22",
+      "name": "sdf@vensi-shop",
+      "externalCode": "JvpPR5wrhA24x2ldeM8VD2",
+      "archived": false,
+      "uid": "sdf@vensi-shop",
+      "email": "vensi@vensi.me",
+      "lastName": "sdf@vensi-shop",
+      "fullName": "sdf@vensi-shop",
+      "shortFio": "sdf@vensi-shop"
+    },
+    {
+      "meta": {
+        "href": "https://online.moysklad.ru/api/remap/1.1/entity/employee/005323cb-83ac-11e6-7a31-d0fd002ef703",
+        "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      },
+      "id": "005323cb-83ac-11e6-7a31-d0fd002ef703",
+      "accountId": "47896027-0e7b-11e2-c959-3c4a92f3a0a7",
+      "owner": {
+        "meta": {
+          "href": "https://online.moysklad.ru/api/remap/1.1/entity/employee/005323cb-83ac-11e6-7a31-d0fd002ef703",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata",
+          "type": "employee",
+          "mediaType": "application/json"
+        }
+      },
+      "shared": true,
+      "group": {
+        "meta": {
+          "href": "https://online.moysklad.ru/api/remap/1.1/entity/group/17a74747-d269-11e4-90a2-8ecb00041136",
+          "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/group/metadata",
+          "type": "group",
+          "mediaType": "application/json"
+        }
+      },
+      "version": 2,
+      "updated": "2016-09-26 08:45:05",
+      "name": "Игнатьева Т. М.",
+      "externalCode": "W20R-vWuhES2SduIRkZZ52",
+      "archived": false,
+      "uid": "abc@vensi-shop",
+      "email": "vensi@vensi.me",
+      "phone": "+7 (922) 106-56-46",
+      "firstName": "Татьяна",
+      "middleName": "Маратовна",
+      "lastName": "Игнатьева",
+      "fullName": "Татьяна Маратовна Игнатьева",
+      "shortFio": "Игнатьева Т. М.",
+      "attributes": [
+        {
+          "meta": {
+            "href": "https://online.moysklad.ru/api/remap/1.1/entity/employee/metadata/attributes/0aed2c79-aa1e-41d9-a90f-461711733ed7",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+          },
+          "id": "0aed2c79-aa1e-41d9-a90f-461711733ed7",
+          "name": "Внутренний номер",
+          "type": "string",
+          "value": "100"
+        }
+      ]
+    }
+  ]
+}

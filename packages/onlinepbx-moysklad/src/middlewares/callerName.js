@@ -5,11 +5,7 @@ const nodeFetch = require('node-fetch')
 
 const actions = require('../actions')
 
-const { MOYSKLAD_LOGIN, MOYSKLAD_PASSWORD } = process.env
-const authHeader = 'Basic ' + Buffer.from(`${MOYSKLAD_LOGIN}:${MOYSKLAD_PASSWORD}`, 'utf8')
-  .toString('base64')
-
-const { normalizePhone, getMoyskladError } = require('../tools')
+const { normalizePhone, getMoyskladError, getAuthHeader } = require('../tools')
 
 const getSearchUrl = search =>
   'https://online.moysklad.ru/api/remap/1.1/entity/counterparty?expand=contactpersons&search=' +
@@ -31,7 +27,7 @@ module.exports = core => next => action => {
 
   return nodeFetch(getSearchUrl(phone), {
     method: 'GET',
-    headers: { Authorization: authHeader }
+    headers: { Authorization: getAuthHeader() }
   })
     .then(res => res.json())
     .then(res => {
