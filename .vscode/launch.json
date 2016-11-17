@@ -20,18 +20,6 @@
       "console": "internalConsole",
       "sourceMaps": false,
       "outFiles": []
-    },
-    {
-      "name": "Attach",
-      "type": "node2",
-      "request": "attach",
-      "port": 9229,
-      "address": "localhost",
-      "restart": false,
-      "sourceMaps": false,
-      "outFiles": [],
-      "localRoot": "${workspaceRoot}",
-      "remoteRoot": null
     }
   ]
 }
