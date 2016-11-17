@@ -6,13 +6,13 @@ const nock = require('nock')
 const test = require('blue-tape')
 // const sinon = require('sinon')
 
-const { createCore, applyPlugin, composeAsync: compose } = require('scaleflow')
+const { Core } = require('scaleflow')
 
 const { onlinepbxMoysklad } = require('..')
 const actions = require('../actions')
 
 // Mock log
-const loggerPlugin = core => Object.assign({}, core, { log () {} })
+const loggerInitializer = (_, { instance }) => Object.assign(instance, { log () {} })
 
 const getScope = () => nock('https://online.moysklad.ru')
     .get('/api/remap/1.1/entity/counterparty')
@@ -24,8 +24,7 @@ nock.emitter.on('no match', req => {
 test('onlinepbx-moysklad', co.wrap(function * (t) {
   let scope
   let result
-  let core = createCore(compose(
-    applyPlugin(loggerPlugin), onlinepbxMoysklad))
+  let core = (Core.compose(onlinepbxMoysklad).init(loggerInitializer))()
 
   t.comment('find company by phone')
 
@@ -42,8 +41,6 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
       callerNumber: '8922 609-07-05'
     }
   })
-
-  scope.done()
 
   t.ok(result)
   t.deepEqual(result, {
@@ -62,6 +59,8 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
     }
   })
 
+  scope.done()
+
   t.comment('find contact in company by phone')
 
   scope = getScope()
@@ -77,8 +76,6 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
       callerNumber: '3521782'
     }
   })
-
-  scope.done()
 
   t.ok(result)
   t.deepEqual(result, {
@@ -103,4 +100,6 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
       }
     }
   })
+
+  scope.done()
 }))

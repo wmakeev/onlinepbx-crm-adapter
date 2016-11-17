@@ -1,12 +1,10 @@
 'use strict'
 
-const {
-  applyMiddleware //, composeAsync: compose
-} = require('scaleflow')
+const { Core } = require('scaleflow')
 
 const callerNameMiddleware = require('./middlewares/callerNameMiddleware')
 
 module.exports = {
   callerNameMiddleware,
-  onlinepbxMoysklad: applyMiddleware(callerNameMiddleware)
+  onlinepbxMoysklad: Core.middleware(callerNameMiddleware)
 }

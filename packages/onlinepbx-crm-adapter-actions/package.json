@@ -1,0 +1,15 @@
+{
+  "name": "onlinepbx-crm-adapter-actions",
+  "version": "0.1.0",
+  "description": "События crm-адаптера",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "onlinepbx",
+    "crm"
+  ],
+  "author": "Vitaliy V. Makeev",
+  "license": "MIT"
+}

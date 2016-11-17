@@ -1,4 +1,0 @@
-module.exports = {
-  GET_CALLER_NAME: 'GET_CALLER_NAME',
-  CALLER_NAME: 'CALLER_NAME'
-}

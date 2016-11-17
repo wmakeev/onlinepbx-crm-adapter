@@ -1,0 +1,16 @@
+{
+  "name": "onlinepbx-telergam",
+  "version": "0.1.0",
+  "description": "Плагин для интеграции OnlinePbx и Telegram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "telegram",
+    "onlinepbx"
+  ],
+  "author": "Vitaliy V. Makeev",
+  "license": "MIT",
+  "dependencies": {}
+}

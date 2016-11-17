@@ -1,1 +1,5 @@
-module.exports = require('./src/server.js')
+try {
+  require('dotenv').config({ silent: true })
+} catch (e) {}
+
+module.exports = require('./src')

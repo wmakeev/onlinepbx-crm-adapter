@@ -25,7 +25,8 @@
     "google-libphonenumber": "^1.0.15",
     "node-fetch": "^1.6.3",
     "phone-parser": "0.0.2",
-    "scaleflow": "github:wmakeev/scaleflow#1233b5b1c339c2611cc47696ad53922f1a910ca1"
+    "scaleflow": "github:wmakeev/scaleflow#da82dc71a02a1c35fd21b95ebacdf657b996512d",
+    "onlinepbx-crm-adapter-actions": "^0.1.0"
   },
   "devDependencies": {
     "blue-tape": "^1.0.0",
