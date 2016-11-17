@@ -8,13 +8,13 @@ const isPromise = require('is-promise')
 const test = require('blue-tape')
 // const { Core } = require('scaleflow')
 
-let Adapter = require('../')
+let CrmAdapter = require('../')
 
 // Mock CRM
 const mockCrmMiddleware = require('./mocks/mockCrmMiddleware')
 
 // Mock adapter creator
-let MockAdapter = Adapter.middleware(mockCrmMiddleware)
+let MockCrmAdapter = CrmAdapter.middleware(mockCrmMiddleware)
 
 // Test cases
 const addonApiCases = require('./cases/addonApiCases')
@@ -59,7 +59,7 @@ const testCases = (name, CurrentAdapter, adapterMethod, cases) => {
 
 // Tests
 test('Adapter API', co.wrap(function * (t) {
-  let adapter = Adapter()
+  let adapter = CrmAdapter()
   t.equal(typeof adapter.log, 'function',
     'adapter#log is function')
   t.equal(typeof adapter.addonAction,
@@ -68,6 +68,6 @@ test('Adapter API', co.wrap(function * (t) {
     'adapter#httpCommand is function')
 }))
 
-testCases('Addon API middleware', MockAdapter, 'addonAction', addonApiCases)
+testCases('Addon API middleware', MockCrmAdapter, 'addonAction', addonApiCases)
 
-testCases('HTTP command middleware', MockAdapter, 'httpCommand', httpCommandCases)
+testCases('HTTP command middleware', MockCrmAdapter, 'httpCommand', httpCommandCases)
