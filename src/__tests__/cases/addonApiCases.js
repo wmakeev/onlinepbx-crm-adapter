@@ -1,5 +1,3 @@
-const actions = require('onlinepbx-crm-adapter-actions')
-
 module.exports = [
   {
     name: 'process empty request',
