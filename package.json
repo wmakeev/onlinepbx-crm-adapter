@@ -21,9 +21,7 @@
     "lodash.isobject": "^3.0.2",
     "onlinepbx-crm-adapter-actions": "^0.1.0",
     "onlinepbx-moysklad": "^0.1.0",
-    "scaleflow": "github:wmakeev/scaleflow#da82dc71a02a1c35fd21b95ebacdf657b996512d",
-    "serve-favicon": "^2.3.0",
-    "serve-static": "^1.10.2"
+    "scaleflow": "github:wmakeev/scaleflow#da82dc71a02a1c35fd21b95ebacdf657b996512d"
   },
   "repository": {
     "type": "git",
