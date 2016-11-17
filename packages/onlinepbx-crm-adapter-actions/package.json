@@ -1,6 +1,6 @@
 {
   "name": "onlinepbx-crm-adapter-actions",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "События crm-адаптера",
   "main": "index.js",
   "scripts": {
