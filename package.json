@@ -1,7 +1,7 @@
 {
   "name": "onlinepbx-crm-adapter",
   "description": "Сервис интеграции Google Chrome плагина от онлайн АТС OnlinePBX с сервисовм МойСклад",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "scripts": {
     "test": "blue-tape src/**/__tests__/**/*.test.js | tap-spec"
@@ -18,7 +18,7 @@
     "co": "^4.6.0",
     "debug": "^2.2.0",
     "lodash.isobject": "^3.0.2",
-    "onlinepbx-crm-adapter-actions": "^0.1.0",
+    "onlinepbx-crm-adapter-actions": "^0.1.2",
     "scaleflow": "github:wmakeev/scaleflow#da82dc71a02a1c35fd21b95ebacdf657b996512d"
   },
   "repository": {
