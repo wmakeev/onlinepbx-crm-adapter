@@ -11,6 +11,15 @@ const getCallerNameAction = callerNumber => ({
   }
 })
 
+const callerNameAction = (phone, caller) => ({
+  type: actions.CALLER_NAME,
+  payload: {
+    phone,
+    caller
+  }
+})
+
 module.exports = Object.assign({}, actions, {
-  getCallerNameAction
+  getCallerNameAction,
+  callerNameAction
 })

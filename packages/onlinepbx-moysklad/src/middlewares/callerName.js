@@ -3,7 +3,7 @@
 const assert = require('assert')
 const nodeFetch = require('node-fetch')
 
-const actions = require('../actions')
+const { GET_CALLER_NAME, callerNameAction } = require('../actions')
 
 const { normalizePhone, getMoyskladError, getAuthHeader } = require('../tools')
 
@@ -14,7 +14,7 @@ const getSearchUrl = search =>
 const getCompanyUrl = id => 'https://online.moysklad.ru/app/#company/view?id=' + id
 
 module.exports = core => next => action => {
-  if (action.type !== actions.GET_CALLER_NAME) {
+  if (action.type !== GET_CALLER_NAME) {
     return next(action)
   }
 
@@ -81,12 +81,6 @@ module.exports = core => next => action => {
         return res
       }, [])
 
-      return core.dispatch({
-        type: actions.CALLER_NAME,
-        payload: {
-          phone,
-          caller: contacts[0]
-        }
-      })
+      return core.dispatch(callerNameAction(phone, contacts[0]))
     })
 }
