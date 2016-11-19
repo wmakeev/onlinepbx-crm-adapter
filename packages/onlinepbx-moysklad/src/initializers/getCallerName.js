@@ -64,7 +64,7 @@ module.exports = function getCallerNameInitializer (options, { instance }) {
           contact: {
             id: counterparty.id,
             url: getCompanyUrl(counterparty.id),
-            title: counterparty.name + (counterparty.code ? ` [${counterparty.code}]` : ''),
+            name: counterparty.name + (counterparty.code ? ` [${counterparty.code}]` : ''),
             email: counterparty.email
           }
         }

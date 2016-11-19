@@ -43,7 +43,7 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
     contact: {
       email: 'mvv@vensi.me',
       id: 'd04f8c38-a83f-4117-9802-e420dc531555',
-      title: 'Макеев Виталий Вячеславович (ФЛ) [4]',
+      name: 'Макеев Виталий Вячеславович (ФЛ) [4]',
       url: 'https://online.moysklad.ru/app/#company/view?id=' +
         'd04f8c38-a83f-4117-9802-e420dc531555'
     }
