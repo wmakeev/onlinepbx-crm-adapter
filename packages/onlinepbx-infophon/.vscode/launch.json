@@ -1,0 +1,22 @@
+{
+  // Use IntelliSense to find out which attributes exist for node debugging
+  // Use hover for the description of the existing attributes
+  // For further information visit https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "index.test",
+      "type": "node2",
+      "request": "launch",
+      "program": "${workspaceRoot}/src/__tests__/index.test.js",
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "central.test",
+      "type": "node2",
+      "request": "launch",
+      "program": "${workspaceRoot}/src/initializers/districts/__tests__/central.test.js",
+      "cwd": "${workspaceRoot}"
+    }
+  ]
+}
