@@ -1,0 +1,27 @@
+{
+  "name": "onlinepbx-infophon",
+  "version": "0.1.0",
+  "description": "Поиск номера телефона в базе infophon.ru",
+  "main": "index.js",
+  "scripts": {
+    "test": "blue-tape src/**/__tests__/**/*.test.js | tap-spec"
+  },
+  "keywords": [
+    "onlinebpx",
+    "crm",
+    "addon",
+    "extension"
+  ],
+  "dependencies": {
+    "co": "^4.6.0",
+    "onlinepbx-crm-adapter-actions": "^0.1.2",
+    "osmosis": "^1.1.2",
+    "scaleflow": "github:wmakeev/scaleflow#da82dc71a02a1c35fd21b95ebacdf657b996512d"
+  },
+  "author": "Vitaliy V. Makeev",
+  "license": "MIT",
+  "devDependencies": {
+    "blue-tape": "^1.0.0",
+    "tap-spec": "^4.1.1"
+  }
+}
