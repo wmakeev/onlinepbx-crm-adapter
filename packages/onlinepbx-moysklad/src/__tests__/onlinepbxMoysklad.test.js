@@ -50,10 +50,10 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
       caller: {
         contact: {
           email: 'mvv@vensi.me',
-          id: 'd04f8c38-a83f-4117-9802-e420dc53105a',
+          id: 'd04f8c38-a83f-4117-9802-e420dc531555',
           title: 'Макеев Виталий Вячеславович (ФЛ) [4]',
           url: 'https://online.moysklad.ru/app/#company/view?id=' +
-            'd04f8c38-a83f-4117-9802-e420dc53105a'
+            'd04f8c38-a83f-4117-9802-e420dc531555'
         }
       },
       phone: '8922 609-07-05'
@@ -86,19 +86,44 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
       caller: {
         company: {
           email: 'mvv@vensi.me',
-          id: 'd04f8c38-a83f-4117-9802-e420dc53105a',
+          id: 'd04f8c38-a83f-4117-9802-e420dc531555',
           title: 'Макеев Виталий Вячеславович (ФЛ) [4]',
           url: 'https://online.moysklad.ru/app/#company/view?' +
-            'id=d04f8c38-a83f-4117-9802-e420dc53105a'
+            'id=d04f8c38-a83f-4117-9802-e420dc531555'
         },
         contact: {
           email: 'mvv@vensi.me',
           id: '4e36970d-1f92-4b76-8ab2-f995d029f729',
           name: 'Виталий',
           url: 'https://online.moysklad.ru/app/#company/view?' +
-            'id=d04f8c38-a83f-4117-9802-e420dc53105a'
+            'id=d04f8c38-a83f-4117-9802-e420dc531555'
         }
       }
+    }
+  })
+
+  t.comment('find contact (no result)')
+
+  scope = getScope('counterparty')
+    .query({
+      expand: 'contactpersons',
+      search: '705'
+    })
+    .replyWithFile(200, path.resolve(__dirname, 'res/counterparty.json'))
+
+  result = yield core.dispatch({
+    type: actions.CONTACT_INFO,
+    payload: {
+      phone: '705'
+    }
+  })
+
+  t.ok(result)
+  t.deepEqual(result, {
+    type: actions.CALLER_NAME,
+    payload: {
+      phone: '705',
+      caller: null
     }
   })
 

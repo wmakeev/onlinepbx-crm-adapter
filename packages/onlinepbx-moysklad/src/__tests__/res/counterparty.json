@@ -21,12 +21,12 @@
   "rows": [
     {
       "meta": {
-        "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc53105a?expand=contactpersons",
+        "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc531555?expand=contactpersons",
         "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/metadata",
         "type": "counterparty",
         "mediaType": "application/json"
       },
-      "id": "d04f8c38-a83f-4117-9802-e420dc53105a",
+      "id": "d04f8c38-a83f-4117-9802-e420dc531555",
       "accountId": "47896027-0e7b-11e2-c959-3c4a92f3a0a7",
       "shared": true,
       "group": {
@@ -214,7 +214,7 @@
           "id": "dfeb0a31-863b-4654-8898-fdbb8bec3c34",
           "name": "Пароль",
           "type": "string",
-          "value": "user033"
+          "value": "user03"
         },
         {
           "meta": {
@@ -241,7 +241,7 @@
       ],
       "accounts": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc53105a/accounts",
+          "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc531555/accounts",
           "type": "account",
           "mediaType": "application/json",
           "size": 2,
@@ -276,7 +276,7 @@
       ],
       "contactpersons": {
         "meta": {
-          "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc53105a/contactpersons",
+          "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc531555/contactpersons",
           "type": "contactperson",
           "mediaType": "application/json",
           "size": 1,
@@ -286,7 +286,7 @@
         "rows": [
           {
             "meta": {
-              "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc53105a/contactpersons/4e36970d-1f92-4b76-8ab2-f995d029f729",
+              "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc531555/contactpersons/4e36970d-1f92-4b76-8ab2-f995d029f729",
               "type": "contactperson",
               "mediaType": "application/json"
             },
@@ -299,7 +299,7 @@
             "phone": "+7 (343) 352-17-82, 100",
             "agent": {
               "meta": {
-                "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc53105a",
+                "href": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/d04f8c38-a83f-4117-9802-e420dc531555",
                 "metadataHref": "https://online.moysklad.ru/api/remap/1.1/entity/counterparty/metadata",
                 "type": "counterparty",
                 "mediaType": "application/json"

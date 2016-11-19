@@ -37,11 +37,14 @@ test('tools#normalizePhone', t => {
   t.ok(normalizePhone)
   t.equal(normalizePhone('+7 (922) 609-07-05'), '507090')
   t.equal(normalizePhone('as744 __-05**'), '50447')
+  t.equal(normalizePhone('759'), '957')
   t.end()
 })
 
 test('tools#isPhonesCompare', t => {
   t.ok(isPhonesCompare)
   t.ok(isPhonesCompare('+7 (922) 609-07-05', '89226090705'))
+  t.ok(isPhonesCompare('+7 (922) 609-07-05', '090705'))
+  t.notOk(isPhonesCompare('+7 (922) 609-07-05', '705'))
   t.end()
 })
