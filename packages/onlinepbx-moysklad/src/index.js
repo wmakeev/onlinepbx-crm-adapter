@@ -2,8 +2,10 @@
 
 const { Core } = require('scaleflow')
 
-const actionsRouter = require('./middlewares/actionsRouter')
-const callerName = require('./middlewares/callerName')
-const listUsers = require('./middlewares/listUsers')
+const listUsers = require('./initializers/listUsers')
+const getCallerName = require('./initializers/getCallerName')
+const actionsHandler = require('./middlewares/actionsHandler')
 
-module.exports = Core.middleware(actionsRouter, callerName, listUsers)
+module.exports = Core
+  .init(getCallerName, listUsers)
+  .middleware(actionsHandler)

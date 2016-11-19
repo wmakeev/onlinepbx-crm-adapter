@@ -2,11 +2,9 @@
 
 let test = require('blue-tape')
 
-const {
-    normalizePhone, isPhonesCompare, getMoyskladError
-} = require('../tools')
+const { normalizePhone, isPhonesCompare, getMoyskladError } = require('../tools')
 
-test('tools#getMoyskladError', t => {
+test('Tools: #getMoyskladError', t => {
   let err
   t.ok(getMoyskladError)
 
@@ -33,7 +31,7 @@ test('tools#getMoyskladError', t => {
   t.end()
 })
 
-test('tools#normalizePhone', t => {
+test('Tools: #normalizePhone', t => {
   t.ok(normalizePhone)
   t.equal(normalizePhone('+7 (922) 609-07-05'), '507090')
   t.equal(normalizePhone('as744 __-05**'), '50447')
@@ -41,7 +39,7 @@ test('tools#normalizePhone', t => {
   t.end()
 })
 
-test('tools#isPhonesCompare', t => {
+test('Tools: #isPhonesCompare', t => {
   t.ok(isPhonesCompare)
   t.ok(isPhonesCompare('+7 (922) 609-07-05', '89226090705'))
   t.ok(isPhonesCompare('+7 (922) 609-07-05', '090705'))

@@ -2,18 +2,17 @@
 
 const co = require('co')
 const nodeFetch = require('node-fetch')
-const actions = require('../actions')
 
 const { getMoyskladError, getAuthHeader } = require('../tools')
 
 const EMPLOYEE_URL = 'https://online.moysklad.ru/api/remap/1.1/entity/employee'
 
-module.exports = core => next => action => {
-  if (action.type !== actions.LIST_USERS) {
-    return next(action)
+module.exports = function listUsersInitializer (options, { instance }) {
+  if (!instance.moysklad) {
+    instance.moysklad = {}
   }
 
-  return co(function * () {
+  instance.moysklad.listUsers = co.wrap(function * () {
     let employees = yield nodeFetch(EMPLOYEE_URL, {
       method: 'GET',
       headers: { Authorization: getAuthHeader() }
