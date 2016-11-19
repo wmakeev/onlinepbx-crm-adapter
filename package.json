@@ -14,7 +14,6 @@
     "extension"
   ],
   "dependencies": {
-    "body-parser": "^1.15.0",
     "co": "^4.6.0",
     "debug": "^2.2.0",
     "lodash.isobject": "^3.0.2",
