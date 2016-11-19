@@ -74,6 +74,7 @@ test('Extension onlinepbx-infophon', co.wrap(function * (t) {
     payload: {
       caller: {
         contact: {
+          id: 'onlinepbx-infophon',
           name: 'FASHIONSET (Свердловская область, Екатеринбург)',
           photo: 'http://infophon.ru/images/trubka_top.jpg',
           url: 'https://yandex.ru/search/?text=FASHIONSET%20%D0%A1%D0%B2%D0%B5%D1%80%D0%B4%D0' +
