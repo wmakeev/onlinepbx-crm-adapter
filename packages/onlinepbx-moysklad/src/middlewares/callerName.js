@@ -1,5 +1,6 @@
 'use strict'
 
+const co = require('co')
 const assert = require('assert')
 const nodeFetch = require('node-fetch')
 
@@ -25,62 +26,61 @@ module.exports = core => next => action => {
   let phone = action.payload.callerNumber
   let normalizedPhone = normalizePhone(phone)
 
-  return nodeFetch(getSearchUrl(phone), {
-    method: 'GET',
-    headers: { Authorization: getAuthHeader() }
-  })
-    .then(res => res.json())
-    .then(res => {
+  return co(function * () {
+    // TODO Выделить в отдельный модуль (или заменить библиотекой)
+    let counterparties = yield nodeFetch(getSearchUrl(phone), {
+      method: 'GET',
+      headers: { Authorization: getAuthHeader() }
+    }).then(res => res.json()).then(res => {
       // Обрабатываем возможную ошибку
       let error = getMoyskladError(res)
       return error
         ? Promise.reject(error)
         : res.rows
     })
-    .then(counterparties => {
-      let contacts = counterparties.reduce((res, counterparty) => {
-        // Для начала, нужно пробовать найти запрошенный номер телефона в связанных контактах
-        if (counterparty.contactpersons) {
-          let contactperson = counterparty.contactpersons.rows
-            .find(contact => contact.phone
-              ? contact.phone
-                .split(/[;,]/g)
-                .map(normalizePhone)
-                .some(np => np === normalizedPhone)
-              : false)
 
-          if (contactperson) {
-            res.push({
-              contact: {
-                id: contactperson.id,
-                url: getCompanyUrl(counterparty.id),
-                name: contactperson.name,
-                email: contactperson.email || counterparty.email
-              },
-              company: {
-                id: counterparty.id,
-                url: getCompanyUrl(counterparty.id),
-                title: counterparty.name + (counterparty.code ? ` [${counterparty.code}]` : ''),
-                email: counterparty.email
-              }
-            })
-            return res
+    let testPhone = p => {
+      if (!p) { return false }
+      return p.split(/[;,]/g).map(normalizePhone).some(np => np === normalizedPhone)
+    }
+
+    let callerInfo = null
+
+    for (let counterparty of counterparties) {
+      if (counterparty.contactpersons) {
+        let contacts = counterparty.contactpersons.rows.filter(c => testPhone(c.phone))
+        if (contacts.length) {
+          callerInfo = {
+            contact: {
+              id: contacts[0].id,
+              url: getCompanyUrl(counterparty.id),
+              name: contacts[0].name,
+              email: contacts[0].email || counterparty.email
+            },
+            company: {
+              id: counterparty.id,
+              url: getCompanyUrl(counterparty.id),
+              title: counterparty.name + (counterparty.code ? ` [${counterparty.code}]` : ''),
+              email: counterparty.email
+            }
           }
+          break
         }
+      }
 
-        // Если контакт не найден, возвращаем компанию
-        res.push({
+      if (testPhone(counterparty.phone)) {
+        callerInfo = {
           contact: {
             id: counterparty.id,
             url: getCompanyUrl(counterparty.id),
             title: counterparty.name + (counterparty.code ? ` [${counterparty.code}]` : ''),
             email: counterparty.email
           }
-        })
+        }
+        break
+      }
+    }
 
-        return res
-      }, [])
-
-      return core.dispatch(callerNameAction(phone, contacts[0]))
-    })
+    return core.dispatch(callerNameAction(phone, callerInfo))
+  })
 }
