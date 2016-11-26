@@ -1,6 +1,6 @@
 {
   "name": "onlinepbx-infophon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Поиск номера телефона в базе infophon.ru",
   "main": "index.js",
   "scripts": {
