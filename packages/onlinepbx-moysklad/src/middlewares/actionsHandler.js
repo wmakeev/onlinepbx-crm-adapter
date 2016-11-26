@@ -28,7 +28,7 @@ module.exports = core => next => action => {
             : action.payload.caller_name || 'Unknown'
 
           if (core.options.translitHttpSetNameCommand) {
-            name = translit(name)
+            name = translit(name).replace(/[^a-zA-Z0-9\s]+/g, '')
           }
 
           return `set_name: "${name}"`

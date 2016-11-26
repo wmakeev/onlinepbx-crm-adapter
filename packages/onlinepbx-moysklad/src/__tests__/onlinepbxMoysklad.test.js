@@ -154,7 +154,7 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
       caller_number: '83433521782'
     }
   })
-  t.equal(result, 'set_name: "Makeev Vytalyi Viacheslavovych (FL) [4]"')
+  t.equal(result, 'set_name: "Makeev Vytalyi Viacheslavovych FL 4"')
   scope.done()
   delete core.options.translitHttpSetNameCommand
 }))
