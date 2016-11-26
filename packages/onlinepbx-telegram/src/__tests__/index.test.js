@@ -5,7 +5,7 @@ const test = require('blue-tape')
 const { Core } = require('scaleflow')
 const { CALLER_NAME } = require('onlinepbx-crm-adapter-actions')
 
-const OnlinepbxTelegram = require('..')
+const OnlinepbxTelegram = require('../..')
 const nocks = require('./telegram/nocks')
 const cases = require('./res/index-cases')
 
