@@ -1,6 +1,6 @@
 {
   "name": "onlinepbx-crm-adapter",
-  "description": "Сервис интеграции Google Chrome плагина от онлайн АТС OnlinePBX с сервисовм МойСклад",
+  "description": "Адаптер для интеграции онлайн АТС OnlinePBX с внешней CRM",
   "version": "0.1.1",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
   "keywords": [
     "node",
     "onlinepbx",
-    "moysklad",
+    "crm",
+    "adapter",
     "google chrome",
     "extension"
   ],
