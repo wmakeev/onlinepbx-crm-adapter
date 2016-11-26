@@ -1,7 +1,7 @@
 {
   "name": "onlinepbx-telegram",
   "version": "0.1.2",
-  "description": "Плагин для интеграции OnlinePbx и Telegram",
+  "description": "Плагин для интеграции OnlinePBX и Telegram",
   "main": "index.js",
   "scripts": {
     "test": "blue-tape ./src/**/__tests__/*.test.js | tap-spec"
