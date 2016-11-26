@@ -2,5 +2,6 @@
   "editor.rulers": [100],
   "editor.tabSize": 2,
   "editor.renderIndentGuides": true,
+  "search.exclude": {},
   "files.trimTrailingWhitespace": true
 }
