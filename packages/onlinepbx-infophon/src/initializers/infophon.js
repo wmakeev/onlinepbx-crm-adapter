@@ -2,9 +2,10 @@
 
 const infophonSearch = require('./districts/search')
 
-const DEFAULT_DISTRICT = process.env.INFOPHON_DEFAULT_DISTRICT || 'Центральный федеральный округ'
-
 module.exports = function infophonInitializer (options, { instance }) {
+  const DEFAULT_DISTRICT = process.env.ONLINEPBX_INFOPHON_DEFAULT_DISTRICT ||
+    'Центральный федеральный округ'
+
   let defaultDistrict = ((options || {}).infophon || {}).defaultDistrict || DEFAULT_DISTRICT
   instance.infophon = {
     search (phone, district) {
