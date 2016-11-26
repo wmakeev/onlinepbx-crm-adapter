@@ -111,6 +111,7 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
   result = yield core.dispatch({
     type: HTTP_ACTION,
     payload: {
+      caller_name: 'Rostelecom',
       caller_number: '83433521782'
     }
   })
@@ -118,7 +119,20 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
   scope.done()
 
   // - //
-  t.comment('HTTP_ACTION - no result')
+  t.comment('HTTP_ACTION - no result #1')
+  scope = getScope('counterparty', { expand: 'contactpersons', search: '456' })
+  result = yield core.dispatch({
+    type: HTTP_ACTION,
+    payload: {
+      caller_name: 'Rostelecom',
+      caller_number: '456'
+    }
+  })
+  t.equal(result, 'set_name: "Rostelecom"')
+  scope.done()
+
+  // - //
+  t.comment('HTTP_ACTION - no result #2')
   scope = getScope('counterparty', { expand: 'contactpersons', search: '456' })
   result = yield core.dispatch({
     type: HTTP_ACTION,
@@ -126,6 +140,21 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
       caller_number: '456'
     }
   })
-  t.equal(result, null)
+  t.equal(result, 'set_name: "Unknown"')
   scope.done()
+
+  // - //
+  t.comment('HTTP_ACTION - get contact name (translit)')
+  scope = getScope('counterparty', { expand: 'contactpersons', search: '83433521782' })
+  core.options.translitHttpSetNameCommand = true
+  result = yield core.dispatch({
+    type: HTTP_ACTION,
+    payload: {
+      caller_name: 'Rostelecom',
+      caller_number: '83433521782'
+    }
+  })
+  t.equal(result, 'set_name: "Makeev Vytalyi Viacheslavovych (FL) [4]"')
+  scope.done()
+  delete core.options.translitHttpSetNameCommand
 }))

@@ -1,5 +1,6 @@
 'use strict'
 
+const translit = require('translitit-cyrillic-russian-to-latin')
 const {
   CONTACT_INFO, HTTP_ACTION, LIST_USERS, CALLER_NAME
 } = require('onlinepbx-crm-adapter-actions')
@@ -22,8 +23,14 @@ module.exports = core => next => action => {
     case HTTP_ACTION:
       return getCaller(core, action.payload.caller_number)
         .then(caller => {
-          if (!caller) { return null }
-          let name = caller.company ? caller.company.title : caller.contact.name
+          let name = caller
+            ? caller.company ? caller.company.title : caller.contact.name
+            : action.payload.caller_name || 'Unknown'
+
+          if (core.options.translitHttpSetNameCommand) {
+            name = translit(name)
+          }
+
           return `set_name: "${name}"`
         })
 
