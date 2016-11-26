@@ -27,7 +27,7 @@ module.exports = function broadcastInitializer (options = {}, { instance }) {
     instance.telegram = {}
   }
 
-  const logError = err => log(`onlinepbx-telergam:`, err)
+  const logError = err => log(`onlinepbx-telegram:`, err)
 
   let telegram
   try {
@@ -51,7 +51,7 @@ module.exports = function broadcastInitializer (options = {}, { instance }) {
 
     let chat = yield telegram.getChat('@' + channelName)
 
-    log('onlinepbx-telergam: connected to channel ' +
+    log('onlinepbx-telegram: connected to channel ' +
       `"${chat.title}" through "${bot.first_name}" bot`)
 
     instance.telegram.broadcast = co.wrap(function * (callerInfo) {
