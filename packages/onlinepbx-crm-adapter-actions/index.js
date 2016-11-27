@@ -23,5 +23,8 @@ module.exports = {
   HTTP_ACTION: 'HTTP_ACTION',
 
   /** Adapter | Карточка клиента */
-  CALLER_NAME: 'CALLER_NAME'
+  CALLER_NAME: 'CALLER_NAME',
+
+  /** Adapter | Запрос на получение карточки клиента */
+  GET_CALLER_NAME: 'GET_CALLER_NAME'
 }
