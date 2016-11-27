@@ -1,6 +1,6 @@
 'use strict'
 
-const co = require('co')
+const mc = require('minico')
 const nodeFetch = require('node-fetch')
 
 const { normalizePhone, getMoyskladError, getAuthHeader } = require('../tools')
@@ -16,7 +16,7 @@ module.exports = function getCallerNameInitializer (options, { instance }) {
     instance.moysklad = {}
   }
 
-  instance.moysklad.getCallerName = co.wrap(function * (phone) {
+  instance.moysklad.getCallerName = mc(function * (phone) {
     let normalizedPhone = normalizePhone(phone)
 
     let counterparties = yield nodeFetch(getSearchUrl(phone), {

@@ -1,6 +1,6 @@
 'use strict'
 
-const co = require('co')
+const mc = require('minico')
 const nodeFetch = require('node-fetch')
 
 const { getMoyskladError, getAuthHeader } = require('../tools')
@@ -12,7 +12,7 @@ module.exports = function listUsersInitializer (options, { instance }) {
     instance.moysklad = {}
   }
 
-  instance.moysklad.listUsers = co.wrap(function * () {
+  instance.moysklad.listUsers = mc(function * () {
     let employees = yield nodeFetch(EMPLOYEE_URL, {
       method: 'GET',
       headers: { Authorization: getAuthHeader() }

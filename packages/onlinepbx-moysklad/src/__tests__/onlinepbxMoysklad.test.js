@@ -1,10 +1,9 @@
 'use strict'
 
+const mc = require('minico')
 const path = require('path')
-const co = require('co')
 const nock = require('nock')
 const test = require('blue-tape')
-// const sinon = require('sinon')
 
 const { Core } = require('scaleflow')
 
@@ -23,7 +22,7 @@ nock.emitter.on('no match', req => {
   console.log('no match:', req)
 })
 
-test('onlinepbx-moysklad', co.wrap(function * (t) {
+test('onlinepbx-moysklad', mc(function * (t) {
   let scope
   let result
   let TestCore = Core.compose(onlinepbxMoysklad).init(loggerInitializer)
@@ -106,11 +105,23 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
   scope.done()
 
   // - //
+  t.comment('HTTP_ACTION - error if no action specified')
+  result = yield core.dispatch({
+    type: HTTP_ACTION,
+    payload: {
+      caller_name: 'Rostelecom',
+      caller_number: '83433521782'
+    }
+  }).catch(err => err.message)
+  t.equal(result, 'Http command action not specified')
+
+  // - //
   t.comment('HTTP_ACTION - get contact name')
   scope = getScope('counterparty', { expand: 'contactpersons', search: '83433521782' })
   result = yield core.dispatch({
     type: HTTP_ACTION,
     payload: {
+      action: 'set_name',
       caller_name: 'Rostelecom',
       caller_number: '83433521782'
     }
@@ -124,6 +135,7 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
   result = yield core.dispatch({
     type: HTTP_ACTION,
     payload: {
+      action: 'set_name',
       caller_name: 'Rostelecom',
       caller_number: '456'
     }
@@ -137,6 +149,7 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
   result = yield core.dispatch({
     type: HTTP_ACTION,
     payload: {
+      action: 'set_name',
       caller_number: '456'
     }
   })
@@ -150,6 +163,7 @@ test('onlinepbx-moysklad', co.wrap(function * (t) {
   result = yield core.dispatch({
     type: HTTP_ACTION,
     payload: {
+      action: 'set_name',
       caller_name: 'Rostelecom',
       caller_number: '83433521782'
     }

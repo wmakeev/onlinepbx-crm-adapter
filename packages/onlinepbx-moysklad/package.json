@@ -22,6 +22,7 @@
     "erp"
   ],
   "dependencies": {
+    "minico": "^1.0.1",
     "node-fetch": "^1.6.3",
     "onlinepbx-crm-adapter-actions": "^0.1.3",
     "scaleflow": "github:wmakeev/scaleflow#da82dc71a02a1c35fd21b95ebacdf657b996512d",
@@ -29,9 +30,7 @@
   },
   "devDependencies": {
     "blue-tape": "^1.0.0",
-    "co": "^4.6.0",
     "nock": "^8.1.0",
-    "sinon": "^1.17.6",
     "tap-spec": "^4.1.1",
     "walkdir": "0.0.11"
   }
